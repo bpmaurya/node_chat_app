@@ -13,13 +13,23 @@ var server = http.createServer(app);
 var io = socketIO(server);
 
 io.on('connection',(socket) => {
-    console.log('new user connected')
+    console.log('new user connected');
 
-    socket.on('disconnect',()=>{
-        console.log('user disconnected')
+    socket.emit('newMessage',{
+        from:'admin@example.com',
+        text:'Hello 2323',
+       
+    });
+
+   socket.emit('createMessage',(message) => {
+       console.log('createMessage',message);
+   })
+   
+    socket.on('disconnect', ()=>{
+        console.log('new user disconnected')
     })
-})
 
+})
 
 app.use(express.static(publicPth))
 
