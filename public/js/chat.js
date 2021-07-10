@@ -18,7 +18,21 @@ function scrollToBottom() {
 
 socket.on('connect',function() {
     console.log('new user connected');
-    var params = jQuery.deparam(window.location.search)
+    // var params = jQuery.deparam(window.location.search)
+    const urlSearchData = searchString => {
+        if (!searchString) return false;
+    
+        return searchString
+            .substring(1)
+            .split('&')
+            .reduce((result, next) => {
+                let pair = next.split('=');
+                result[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+    
+                return result;
+            }, {});
+    };
+    var params = urlSearchData(window.location.search)
     socket.emit('join',params,function(err){
         if(err){
             alert(err);
@@ -35,18 +49,21 @@ socket.on('disconnect',function() {
     console.log('user disconnected')
 })
 
-socket.on('newEmail',function(email) {
-    console.log("new email",email);
-})
 
 socket.on('updateUserList',function(users){
   console.log('users is :', users);
-  
+  var ol = jQuery('<ol></ol>');
+  users.forEach(function(user){
+   ol.append(jQuery('<li></li>').text(user))
+  })
+
+  jQuery('#users').html(ol);
+
 })
 
 socket.on('newMessage',function(message) {
     var formattedTime = moment(message.createdAt).format('h:mm a')
-    console.log("new message",message);
+    console.log("new message", message);
     var template = jQuery('#message-template').html();
     var html = Mustache.render(template,{
         text:message.text,
@@ -97,7 +114,6 @@ socket.emit('createMessage',{
      e.preventDefault();
      
      socket.emit('createMessage',{
-         from:"user",
          text:messageTextBox.val()
      },function(data){
          messageTextBox.val('')

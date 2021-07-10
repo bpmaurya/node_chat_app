@@ -7,7 +7,7 @@ class Users{
         this.users.push(user);
         return user;
     }
-    removeUser (id){
+    removeUser(id){
         var user = this.getUser(id);
         if(user){
             this.users = this.users.filter((user)=> user.id !== id)

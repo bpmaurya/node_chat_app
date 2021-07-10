@@ -99,7 +99,8 @@ button.disabled{
   .chat_sidebar li{
     border:1px solid red;
     border-radius:5px;
-    margin:10px
+    margin:10px;
+    color: white
     }
     .chat_main{
       display:flex;
