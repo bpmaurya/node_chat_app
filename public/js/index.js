@@ -38,3 +38,22 @@ socket.emit('createMessage',{
          
      })
    })
+
+   var locationButton = jQuery('#send-location')
+
+   locationButton.on('click',function(){
+       if(!navigator.geolocation){
+           alert('geolocation not supported your browser')
+
+       }
+       navigator.geolocation.getCurrentPosition(function(position){
+          console.log(position);
+          socket.emit('createLocationMessage',{
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+          })
+       },function(){
+           alert('Unable to get current position')
+       })
+
+   })
