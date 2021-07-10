@@ -1,73 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat app</title>
+    <title>Join | chat </title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+</head>
+<body>
+    <div class="centered-form">
+        <div class="centered-form_form">
+            <form action="/chat.html" >
+                <div class="form-field">
+                    <h3>Join a Chat</h3>
+                </div>
+                <div class="form-field">
+                 <label>Display Name</label>
+                 <input type="text" name="name" placeholder="enter name">
+                </div>
+                <div class="form-field">
+                    <label>Room Name</label>
+                    <input type="text" name="room" placeholder="enter room name">
+                </div>
+                <div class="form-field">
+                    <button type="submit">Join</button>
+                </div>
+                </form>
 
-<body class="chat">
-    <div class="chat_sidebar">
-        <h3>People</h3>
-        <div id="users">
 
+            </div>
         </div>
     </div>
+</script>
 
-    <div class="chat_main">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <ol id="messages" class="chat_messages"></ol>
 
-        <div class="chat_footer">
-            <form id="message-form">
-                <input type="text" name="message" placeholder="type message" autofocus autocomplete="off"/>
-                <button>send</button>
-            </form>
-            <button id="send-location">send location</button>
-
-        </div>
-
-    </div>
-    <script id="message-template" type="text/template">
-       <li class="message">
-           <div class="message_title">
-          <h4>{{from}}</h4>
-          <span>{{createdAt}} </span>
-           </div>
-           <div class="message_body">
-               <p>{{text}} </p>
-           </div>
-       </li>
-    </script>
-    <script id="location-message-template" type="text/template">
-       <li class="message">
-           <div class="message_title">
-          <h4>{{from}}</h4>
-          <span>{{createdAt}} </span>
-           </div>
-           <div class="message_body">
-               <p>
-                   <a href="{{url}}" target="_blank">My current location</a> </p>
-           </div>
-       </li>
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>
-
-    </script>
+</script>
 </body>
-
 </html>
-
-
-
-<!-- this is new chat -->

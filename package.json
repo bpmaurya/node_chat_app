@@ -13,6 +13,8 @@
   "author": "bedprakash",
   "license": "ISC",
   "dependencies": {
+    "deparam": "^1.0.5",
+    "deparam.js": "^3.0.2",
     "expect": "^27.0.6",
     "express": "^4.17.1",
     "jquery": "^3.6.0",

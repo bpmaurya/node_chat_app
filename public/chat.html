@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="chat">
+    <div class="chat_sidebar">
+        <h3>People</h3>
+        <div id="users">
+
+        </div>
+    </div>
+
+    <div class="chat_main">
+
+        <ol id="messages" class="chat_messages"></ol>
+
+        <div class="chat_footer">
+            <form id="message-form">
+                <input type="text" name="message" placeholder="type message" autofocus autocomplete="off"/>
+                <button>send</button>
+            </form>
+            <button id="send-location">send location</button>
+
+        </div>
+
+    </div>
+    <script id="message-template" type="text/template">
+       <li class="message">
+           <div class="message_title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}} </span>
+           </div>
+           <div class="message_body">
+               <p>{{text}} </p>
+           </div>
+       </li>
+    </script>
+    <script id="location-message-template" type="text/template">
+       <li class="message">
+           <div class="message_title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}} </span>
+           </div>
+           <div class="message_body">
+               <p>
+                   <a href="{{url}}" target="_blank">My current location</a> </p>
+           </div>
+       </li>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha512-k2WPPrSgRFI6cTaHHhJdc8kAXaRM4JBFEDo1pPGGlYiOyv4vnA0Pp0G5XMYYxgAPmtmv/IIaQA6n5fLAyJaFMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+    <!-- <script src="js/libs/deparam.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-deparam/0.5.3/jquery-deparam.js" integrity="sha512-lCkD7UCuNIXG7m39UjtIEbEzeRwqMk6EB3nO/rmPTLIMTYeK/W72cW4R9zBsG5auF88KHYonkOTWFFewyL0Jrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</script>
+</body>
+
+</html>
+
+
+
+<!-- this is new chat -->
