@@ -2,7 +2,7 @@ const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketIO = require('socket.io')
-const {generateMessage} = require('./utils/message')
+const {generateMessage,generateLocationMessage} = require('./utils/message')
 publicPth = path.join(__dirname, '../public')
 // console.log(__dirname + '/../public')
 // console.log(publicPth)
@@ -32,7 +32,7 @@ io.on('connection',(socket) => {
    })
    
    socket.on('createLocationMessage',(coords)=>{
-       io.emit('newMessage',generateMessage('admin',`${coords.latitude}, ${coords.longitude}`))
+       io.emit('newLocationMessage',generateLocationMessage('admin',coords.latitude, coords.longitude))
    })
     socket.on('disconnect', ()=>{
         console.log('new user disconnected')
