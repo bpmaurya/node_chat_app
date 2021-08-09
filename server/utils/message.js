@@ -8,6 +8,9 @@ var generateMessage = (from,text)=>{
     }
 }
 
+
+// Generate location message 
+
 var generateLocationMessage = (from,lat,lang)=>{
     return {
         from,
